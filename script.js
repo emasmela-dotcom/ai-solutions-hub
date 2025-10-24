@@ -29,6 +29,77 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// ROI Calculator Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const calculateBtn = document.getElementById('calculate-roi');
+    const resultsDiv = document.getElementById('roi-results');
+    
+    if (calculateBtn) {
+        calculateBtn.addEventListener('click', function() {
+            calculateROI();
+        });
+    }
+    
+    function calculateROI() {
+        // Get input values
+        const currentRevenue = parseFloat(document.getElementById('current-revenue').value) || 0;
+        const industry = document.getElementById('industry').value;
+        const currentTraffic = parseFloat(document.getElementById('website-traffic').value) || 0;
+        const currentConversion = parseFloat(document.getElementById('conversion-rate').value) || 0;
+        
+        if (currentRevenue === 0) {
+            alert('Please enter your current monthly revenue to calculate ROI.');
+            return;
+        }
+        
+        // Industry-specific multipliers
+        const industryMultipliers = {
+            'tech': { traffic: 2.5, conversion: 1.8, revenue: 2.2 },
+            'retail': { traffic: 2.0, conversion: 2.5, revenue: 2.8 },
+            'healthcare': { traffic: 1.8, conversion: 2.0, revenue: 2.0 },
+            'consulting': { traffic: 2.2, conversion: 2.2, revenue: 2.5 },
+            'restaurant': { traffic: 2.8, conversion: 2.0, revenue: 2.2 },
+            'fitness': { traffic: 2.0, conversion: 2.2, revenue: 2.0 },
+            'other': { traffic: 2.0, conversion: 2.0, revenue: 2.0 }
+        };
+        
+        const multipliers = industryMultipliers[industry] || industryMultipliers['other'];
+        
+        // Calculate improvements
+        const trafficIncrease = Math.round(currentTraffic * (multipliers.traffic - 1));
+        const newTraffic = currentTraffic + trafficIncrease;
+        const newConversion = currentConversion * multipliers.conversion;
+        const revenueIncrease = currentRevenue * (multipliers.revenue - 1);
+        const newRevenue = currentRevenue + revenueIncrease;
+        
+        // Calculate ROI
+        const websiteCost = 997;
+        const aiCost = industry === 'tech' || industry === 'consulting' ? 497 : 0;
+        const totalCost = websiteCost + aiCost;
+        const annualReturn = revenueIncrease * 12;
+        const roiPercentage = totalCost > 0 ? Math.round((annualReturn / totalCost) * 100) : 0;
+        
+        // Update results
+        document.getElementById('revenue-increase').textContent = `$${revenueIncrease.toLocaleString()}`;
+        document.getElementById('revenue-percentage').textContent = `+${Math.round((revenueIncrease / currentRevenue) * 100)}%`;
+        document.getElementById('traffic-increase').textContent = trafficIncrease.toLocaleString();
+        document.getElementById('traffic-percentage').textContent = `+${Math.round((trafficIncrease / currentTraffic) * 100)}%`;
+        document.getElementById('new-conversion').textContent = `${newConversion.toFixed(1)}%`;
+        document.getElementById('conversion-improvement').textContent = `+${Math.round(((newConversion - currentConversion) / currentConversion) * 100)}%`;
+        document.getElementById('roi-percentage').textContent = `${roiPercentage}%`;
+        
+        // Update investment breakdown
+        document.getElementById('website-cost').textContent = `$${websiteCost}`;
+        document.getElementById('ai-cost').textContent = `$${aiCost}`;
+        document.getElementById('total-cost').textContent = `$${totalCost}`;
+        document.getElementById('annual-return').textContent = `$${annualReturn.toLocaleString()}`;
+        
+        // Show results
+        resultsDiv.style.display = 'block';
+        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
 // Add scroll effect to navbar
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
