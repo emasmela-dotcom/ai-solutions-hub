@@ -933,6 +933,50 @@
             font-size: 1.1rem;
         }
 
+        /* Navigation Buttons */
+        .nav-buttons {
+            background: var(--primary-50);
+            padding: 4rem 0;
+        }
+        
+        .nav-buttons h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-900);
+        }
+        
+        .nav-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--primary-200);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--primary-900);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-btn:hover {
+            border-color: var(--accent-500);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-btn h3 {
+            color: var(--primary-900);
+            margin-bottom: 1rem;
+        }
+        
+        .nav-btn p {
+            color: var(--primary-600);
+        }
+
         /* Print Styles */
         @media print {
             .header,
@@ -1411,6 +1455,23 @@
                     
                     <button type="submit" class="cta-button">Get Free Quote</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <section class="nav-buttons">
+        <div class="container">
+            <h2>Choose Your Service</h2>
+            <div class="nav-buttons-grid">
+                <a href="https://businesshub-7bfce8sqf-erics-projects-b395e20f.vercel.app" class="nav-btn" target="_blank">
+                    <h3>AI Website Development</h3>
+                    <p>Get a professional AI-powered website</p>
+                </a>
+                <a href="https://ccai-fp1ekk96w-erics-projects-b395e20f.vercel.app" class="nav-btn" target="_blank">
+                    <h3>Custom SaaS Solutions</h3>
+                    <p>Build custom AI software for your business</p>
+                </a>
             </div>
         </div>
     </section>
