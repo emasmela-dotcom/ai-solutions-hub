@@ -859,6 +859,80 @@
             outline-offset: 2px;
         }
         
+        /* Market Pricing Section */
+        .market-pricing {
+            background: var(--primary-50);
+            padding: 6rem 0;
+        }
+        
+        .pricing-comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .market-pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--primary-200);
+        }
+        
+        .market-pricing-card h3 {
+            color: var(--primary-900);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .market-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--primary-100);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-item .service {
+            color: var(--primary-700);
+            font-weight: 500;
+        }
+        
+        .price-item .price {
+            color: var(--accent-600);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .pricing-note {
+            background: var(--accent-50);
+            border: 1px solid var(--accent-200);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .pricing-note h4 {
+            color: var(--accent-700);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-note p {
+            color: var(--accent-600);
+            font-size: 1.1rem;
+        }
+
         /* Print Styles */
         @media print {
             .header,
@@ -1008,6 +1082,91 @@
                     <div class="service-price">Starting at $497</div>
                     <a href="https://ccai-fp1ekk96w-erics-projects-b395e20f.vercel.app" class="cta-button" target="_blank">View CCAI</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Pricing Comparison Section -->
+    <section class="market-pricing">
+        <div class="container">
+            <h2 class="section-title">2025 Market Pricing Comparison</h2>
+            <p class="section-subtitle">What do these services actually cost in the market today?</p>
+            
+            <div class="pricing-comparison-grid">
+                <div class="market-pricing-card">
+                    <h3>AI Website Development</h3>
+                    <div class="market-prices">
+                        <div class="price-item">
+                            <span class="service">Basic AI Website (3-5 pages)</span>
+                            <span class="price">$3,000 - $8,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">E-commerce AI Site</span>
+                            <span class="price">$8,000 - $25,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI-Powered Business Platform</span>
+                            <span class="price">$15,000 - $50,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Enterprise AI Website</span>
+                            <span class="price">$25,000 - $100,000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-pricing-card">
+                    <h3>AI SaaS Development</h3>
+                    <div class="market-prices">
+                        <div class="price-item">
+                            <span class="service">Simple AI Tool/App</span>
+                            <span class="price">$8,000 - $20,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI Chatbot System</span>
+                            <span class="price">$5,000 - $15,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI Analytics Platform</span>
+                            <span class="price">$15,000 - $40,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Custom AI SaaS</span>
+                            <span class="price">$25,000 - $75,000</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Enterprise AI Platform</span>
+                            <span class="price">$50,000 - $200,000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-pricing-card">
+                    <h3>AI Consulting & Strategy</h3>
+                    <div class="market-prices">
+                        <div class="price-item">
+                            <span class="service">AI Strategy Session</span>
+                            <span class="price">$300 - $500/hour</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI Implementation</span>
+                            <span class="price">$400 - $800/hour</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI Training/Workshops</span>
+                            <span class="price">$2,000 - $10,000/day</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">AI Project Management</span>
+                            <span class="price">$200 - $400/hour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <h4>Our Competitive Advantage</h4>
+                <p>While market rates are $3,000-$200,000+, we offer professional AI solutions at significantly reduced rates because we focus on efficiency and client success rather than inflated pricing.</p>
             </div>
         </div>
     </section>
