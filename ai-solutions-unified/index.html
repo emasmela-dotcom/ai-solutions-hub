@@ -1506,13 +1506,21 @@
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Smooth scrolling - ONLY for hash links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+        
+        // Ensure external links work
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Don't prevent default for external links
+                console.log('External link clicked:', this.href);
             });
         });
 
