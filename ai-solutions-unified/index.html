@@ -388,6 +388,41 @@
             margin-bottom: 0;
         }
         
+        .addon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .addon-item {
+            background: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .addon-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-300);
+        }
+        
+        .addon-item h5 {
+            color: var(--accent-700);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .addon-item p {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
         .pricing-disclaimer {
             margin-top: 1.5rem;
             padding: 1rem;
@@ -902,15 +937,36 @@
                         
                         <div class="upsell-section">
                             <h4>Popular Add-ons:</h4>
-                            <ul class="upsell-features">
-                                <li>Contact forms & lead capture (+$197)</li>
-                                <li>Google Analytics setup (+$97)</li>
-                                <li>E-commerce integration (+$297)</li>
-                                <li>Advanced SEO & content (+$197)</li>
-                                <li>Social media integration (+$97)</li>
-                                <li>Email marketing setup (+$147)</li>
-                                <li>6 months support (+$197)</li>
-                            </ul>
+                            <div class="addon-grid">
+                                <div class="addon-item">
+                                    <h5>Contact forms & lead capture (+$197)</h5>
+                                    <p>Professional contact forms with automated lead capture, email notifications, and CRM integration to convert visitors into customers.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>Google Analytics setup (+$97)</h5>
+                                    <p>Complete analytics implementation with goal tracking, conversion monitoring, and custom dashboards to measure your website's performance.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>E-commerce integration (+$297)</h5>
+                                    <p>Full online store setup with secure payment processing, inventory management, and order tracking for selling products online.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>Advanced SEO & content (+$197)</h5>
+                                    <p>Comprehensive SEO optimization with keyword research, meta tags, schema markup, and AI-generated content to rank higher in search results.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>Social media integration (+$97)</h5>
+                                    <p>Connect your website with social media platforms, including social sharing buttons, live feeds, and automated posting capabilities.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>Email marketing setup (+$147)</h5>
+                                    <p>Professional email marketing system with automated campaigns, subscriber management, and performance tracking to nurture leads.</p>
+                                </div>
+                                <div class="addon-item">
+                                    <h5>6 months support (+$197)</h5>
+                                    <p>Extended support package including updates, maintenance, troubleshooting, and priority assistance for 6 months after launch.</p>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="pricing-disclaimer">
