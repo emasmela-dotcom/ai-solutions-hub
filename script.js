@@ -15,8 +15,12 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links (only for same-page anchors, not page links)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Skip if it's a page link (starts with /) or external link
+    if (anchor.getAttribute('href').startsWith('/') || anchor.getAttribute('href').startsWith('http')) {
+        return;
+    }
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -157,28 +161,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
     });
 });
 
-// Service section highlighting
-const serviceSections = document.querySelectorAll('.service-section');
-const navLinks = document.querySelectorAll('.nav-menu a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    serviceSections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
+// Service section highlighting removed - sections no longer on page
 
 // Add active class styles
 const style = document.createElement('style');
